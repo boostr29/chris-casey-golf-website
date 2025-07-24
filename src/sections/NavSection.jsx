@@ -24,10 +24,10 @@ export default function NavSection() {
       </div>
 
       {/* Desktop Menu (>=840px) */}
-      <ul className="hidden [@media(min-width:840px)]:flex space-x-8">
-        {["about","services","reviews","contact"].map((id) => (
+      <ul className="hidden [@media(min-width:840px)]:flex space-x-8 pr-2">
+        {["home","about","services","reviews","contact"].map((id) => (
           <li key={id}>
-            <a href={`#${id}`} className="hover:text-green-300/90 font-header transition duration-300 text-green-100/75">
+            <a href={`#${id}`} className="hover:text-green-300/90 font-header transition duration-300 text-green-100/75 text-md">
               {id.charAt(0).toUpperCase()+id.slice(1)}
             </a>
           </li>
