@@ -1,19 +1,17 @@
 // src/sections/ContactSection.jsx
-import React from "react";
-import { Helmet } from "react-helmet";
+import React, {useState} from "react";
 import { RevealFrom } from "../components/RevealFrom";
 
-export function ContactSection() {
-
+export function ContactSection({ onOpenPrivacy }) {
   return (
-    <section id="contact" className="bg-[url('./images/grass-green-golf.jpg')] bg-cover bg-center overflow-hidden custom-px custom-py m-0 pb-0">
-        <Helmet>
-            <title>Contact - Chris Casey Golf Instruction</title>
-            <meta
-            name="description"
-            content="Get in touch with Chris Casey to book your personalized golf lesson today."
-            />
-        </Helmet>
+    <section id="contact" className="relative bg-[url('/images/grass-green-golf.jpg')] bg-cover bg-center overflow-hidden custom-px custom-py m-0 pb-0">
+        
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-green-600/70 to-green-800/60"></div>
+        
+        {/* Content with relative positioning to appear above overlay */}
+        <div className="relative z-1">
+        
         {/* Section 4 content */}
 
     <div className="flex flex-col lg:flex-row gap-10 pt-25 md:pt-10 pb-20">
@@ -29,11 +27,10 @@ export function ContactSection() {
                 <h2 className="font-header 
                     text-[clamp(2.4rem,6.2vw,4.4rem)]
                     leading-[1.2] uppercase
-                    drop-shadow-[0_0_6px_rgba(255,255,255,0.2)]
                     text-gray-100 font-semibold mb-4">
                     Start Your Golf Journey
                 </h2>
-                <p className="font-roboto text-gray-100 text-[1.3rem]/8 pt-5">We'd love to hear from you! Whether you're interested in booking a lesson, asking a question, or just want more information, feel free to reach out.</p>
+                <p className="font-roboto text-gray-100 text-[1.3rem]/8 pt-5">I'd love to hear from you! Whether you're interested in booking a lesson, asking a question, or just want more information, feel free to reach out.</p>
             </RevealFrom>
             <div className="contact-info mb-8 flex flex-wrap justify-start align-middle wrap-normal font-roboto md:px-2 px-1">
                 <RevealFrom
@@ -63,11 +60,11 @@ export function ContactSection() {
                 rootMargin="0px 0px -16% 0px"
                 >
                 {/* Email with icon */}
-                <a href="mailto:christophercasey1@gmail.com" className="contact-link">
+                <a href="mailto:christopherdcasey1@gmail.com" className="contact-link">
                 <div className="rounded-full bg-amber-300 p-4"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364M16.5 12V8.25" />
                     </svg></div>
-                    <p className="pl-2 pr-6 contact-text flex-wrap">christophercasey1@gmail.com</p>
+                    <p className="pl-2 pr-6 contact-text flex-wrap">christopherdcasey1@gmail.com</p>
                 </a>
                 </RevealFrom>
                 <RevealFrom
@@ -84,7 +81,7 @@ export function ContactSection() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
                     </svg></div>
-                    <p className="pl-4 pr-6 text-center contact-text">21088 Bake Pkwy, Lake Forest, CA 92630</p>
+                    <p className="pl-4 pr-6 text-center contact-text">21088 Bake Pkwy, Unit 108, Lake Forest, CA 92630</p>
                 </a>
                 </RevealFrom>
             </div>
@@ -103,26 +100,115 @@ export function ContactSection() {
                 style={{ border: '0' }}
                 allowFullScreen=""
                 loading="lazy"
+                title="Chris Casey Golf Instruction Map"
             ></iframe>
         </RevealFrom>
     </div>
-    <div className="flex flex-col pb-10 mt-10">
-    <h3 className="text-green-200 font-header
-        text-[clamp(2.2rem,8.5vw,6.2rem)]
-          leading-[1]
-          uppercase
-            animate-[pulse_1s_ease-in-out_infinite]
-            text-center
-          ">
-            Chris Casey Golf Instruction
-        </h3>
-        <section id="hole" className="flex max-w-[360px] md:max-w-[380px] lg:max-w-[400px] justify-center align-middle self-center mt-10">
-            <img src="./images/golf-hole.png"/>
-        </section>
-        <div className="flex justify-center mt-10 align-center">
-            <p className="font-header text-white/80 uppercase text-center">&copy; 2025 Copyright Chris Casey Golf Instruction. All Rights Reserved.</p>
+    <div className="flex flex-col pb-15 mt-10">
+  <h3 className="text-green-200 font-header
+      text-[clamp(2rem,8.4vw,5.2rem)]
+        leading-[1.1]
+        uppercase
+          animate-[pulse_1s_ease-in-out_infinite]
+          text-center wrap-break-word
+          drop-shadow-[0_0_6px_rgba(255,255,255,0.2)]
+        ">
+          Chris Casey Golf Instruction
+      </h3>
+      <section id="hole" className="flex max-w-[350px] md:max-w-[380px] lg:max-w-[400px] justify-center align-middle self-center mt-10">
+          <img loading="lazy" alt="Putting Green Golf Hole" src="/images/golf-hole.png"/>
+      </section>
+      <div className="flex flex-col justify-center mt-10 align-center">
+          <p className="font-header text-white/70 uppercase text-center text-[clamp(0.6rem,8vw,0.85rem)] leading-0.8">&copy; 2025 Copyright Chris Casey Golf Instruction. All Rights Reserved. </p>
+            <button onClick={onOpenPrivacy}
+              className="text-white/70 hover:text-green-300 transition duration-300 font-header uppercase cursor-pointer text-[clamp(0.6rem,8vw,0.85rem)] leading-0.8"
+            >
+              Privacy Policy
+            </button>
+      </div>
+      
+</div>
+
         </div>
-    </div>
+        {/* End of content wrapper */}
+        
+{/* Breadcrumb Schema */}
+<script type="application/ld+json">
+{`
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.chriscaseygolf.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About",
+        "item": "https://www.chriscaseygolf.com#about"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Services",
+        "item": "https://www.chriscaseygolf.com#services"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Reviews",
+        "item": "https://www.chriscaseygolf.com#reviews"
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "name": "Contact",
+        "item": "https://www.chriscaseygolf.com#contact"
+      }
+    ]
+  }
+`}
+</script>
+
+{/* Enhanced Local Business Hours Schema */}
+<script type="application/ld+json">
+{`
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Chris Casey Golf Instruction",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "06:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "06:00",
+        "closes": "18:00"
+      }
+    ],
+    "telephone": "+1-631-704-4851",
+    "email": "christopherdcasey1@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "21088 Bake Parkway, Unit 108",
+      "addressLocality": "Lake Forest",
+      "addressRegion": "CA",
+      "postalCode": "92630",
+      "addressCountry": "US"
+    }
+  }
+`}
+</script>
+
     </section>
   );
 }

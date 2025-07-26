@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import { Helmet } from "react-helmet";
 import { InView } from "react-intersection-observer";
 import { RevealFrom } from "../components/RevealFrom";
 import { VideoWithOverlay } from "../components/VideoWithOverlay";
@@ -27,22 +26,16 @@ export function ServicesSection() {
 
     return (
 
-<section id="services" className="bg-gray-200 bg-[url('./images/dust.png')] bg-blend-soft-light bg-cover bg-center overflow-hidden text-gray-600">
-<Helmet>
-  <title>Services - Chris Casey Golf Instruction</title>
-  <meta
-    name="description"
-    content="Explore Chris Casey's golf coaching services, including on-course and virtual lessons."
-  />
-</Helmet>
+<section id="services" className="bg-gray-200 bg-[url('/images/dust.png')] bg-blend-soft-light bg-cover bg-center overflow-hidden text-gray-700">
+
 {/* Section 2 content with fade-in and slide-in */}
-<div className="flex flex-col justify-between md:flex-row custom-px custom-my gap-6">
+<div className="flex flex-col justify-between md:flex-row custom-px custom-my gap-5">
   {/*first half*/}
   <div className="md:w-1/2 w-full flex justify-end">
 
 <RevealFrom
   triggerOnce={true}
-  className="flex justify-center flex-col md:justify-end align-middle self-center custom-px max-w-3xl"
+  className="flex justify-center flex-col md:justify-end align-middle self-center md:px-8 px-4 max-w-3xl"
   initial={{ opacity: 0, x: -100 }}
   animateIn={{ opacity: 1, x: 0 }}
   threshold={0}
@@ -64,7 +57,7 @@ export function ServicesSection() {
   </div>
 </RevealFrom>
 </div>
-  <div className="md:w-1/2 w-full flex flex-row md:pt-14 pb-14 px-1 pt-5 justify-between md:justify-start gap-5 -mt-15 md:mt-0 overflow-x-auto overflow-y-hidden whitespace-wrap no-scrollbar">
+  <div className="md:w-1/2 w-full flex flex-row md:pt-14 pb-14 px-1 pt-5 justify-between md:justify-start gap-5 -mt-15 md:mt-0 overflow-x-auto overflow-y-hidden whitespace-wrap no-scrollbar md:pl-10">
     <RevealFrom
       triggerOnce={true}
       className="flex align-middle self-center justify-center 2xl:w-1/2 xl:w-1/2 l:w-1/2 w-full flex-col md:mt-0 mt-30 max-w-[310px] min-w-[230px]"
@@ -78,9 +71,10 @@ export function ServicesSection() {
         <VideoWithOverlay
           src="./videos/swing1.mp4"
           poster="./images/swing-1.jpg"
+          loading="lazy"
           aspectRatio="9/16"
           overlayClassName="bg-gradient-to-b from-green-600/90 to-green-800/90"
-          className="rounded-xl"
+          className="rounded-xl shadow-sm cursor-pointer"
         />
         <div className="outline rounded-xl p-1 mt-4">
 
@@ -103,11 +97,12 @@ export function ServicesSection() {
         <VideoWithOverlay
           src="./videos/low-fades-high-straight-balls-website.mp4"
           poster="./images/low-fades-high-straight-balls-website.jpg"
+          loading="lazy"
           aspectRatio="9/16"
           overlayClassName="
           bg-gradient-to-b from-green-600/80 to-green-800/90
           backdrop-blur-[1px]"
-          className="rounded-xl"
+          className="rounded-xl shadow-sm cursor-pointer"
         />        <div className="outline rounded-xl p-1 mt-4">
         <p className="font-roboto p-2">Before: Missing low and to the right from the upper body lunging too far ahead.</p>
         <p className="font-roboto p-2">After: Got the hips extending sooner and upper body staying back behind the ball to add some loft.</p>
@@ -134,7 +129,7 @@ export function ServicesSection() {
       <div
         className="
           absolute inset-0
-          bg-[url('./images/golf-simulator.jpg')]
+          bg-[url('/images/golf-simulator.jpg')]
           bg-cover bg-center
           filter opacity-85
         "
@@ -182,7 +177,7 @@ export function ServicesSection() {
       <div
         className="
           absolute inset-0
-          bg-[url('./images/golf-course-training.jpg')]
+          bg-[url('/images/golf-course-training.jpg')]
           bg-cover bg-center
         "
       />
@@ -218,6 +213,65 @@ export function ServicesSection() {
      )}
 </InView>
 </div>
+
+{/* Service Schema for better search visibility */}
+<script type="application/ld+json">
+{`
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Golf Instruction Services",
+    "description": "Professional golf lessons including swing analysis, on-course training, and indoor simulator instruction in Lake Forest, CA",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Chris Casey Golf Instruction",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lake Forest",
+        "addressRegion": "CA",
+        "addressCountry": "US"
+      }
+    },
+    "areaServed": [
+      "Lake Forest, CA",
+      "Orange County, CA",
+      "Irvine, CA",
+      "Mission Viejo, CA"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Golf Instruction Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Private Golf Lessons",
+            "description": "One-on-one personalized golf instruction focusing on swing improvement and technique refinement"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Indoor Golf Simulator Training",
+            "description": "Year-round golf instruction using advanced simulator technology for swing analysis and practice"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "On-Course Golf Lessons",
+            "description": "Real-world golf instruction on the course focusing on strategy, course management, and practical application"
+          }
+        }
+      ]
+    }
+  }
+`}
+</script>
+
 </section>
 
     );
