@@ -103,16 +103,21 @@ export default function LoadingScreen({ onFinish }) {
       `}
     >
       <div className="w-11/12 max-w-sm px-4">
+      <div className="mb-5 text-green-100 text-2xl font-mono text-center">
+          <span className="inline-block animate-pulse font-header">
+            LOADING...
+          </span>
+        </div>
         {/* Progress bar */}
         <div className="h-3 bg-green-600/30 rounded-full overflow-hidden backdrop-blur-sm">
           <div
-            className="h-full bg-gradient-to-r from-green-300 to-green-200 rounded-full transition-all duration-300 ease-out shadow-lg"
+            className="h-full bg-gradient-to-r from-amber-300 to-amber-200 rounded-full transition-all duration-300 ease-out shadow-lg"
             style={{ width: `${Math.min(progress, 100)}%` }}
           />
         </div>
         
         {/* Percentage text */}
-        <div className="mt-6 text-white text-2xl font-mono text-center">
+        <div className="mt-6 text-green-100 text-2xl font-mono text-center">
           <span className="inline-block animate-pulse font-header">
             {Math.ceil(Math.min(progress, 100))}%
           </span>

@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.chriscaseygolf.com/sitemap.xml
+
+# Block unnecessary crawling
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: *.js.map
+
+# Allow important files
+Allow: /images/
+Allow: /videos/

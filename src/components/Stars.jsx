@@ -7,7 +7,7 @@ export function Stars({
     review = "",
   })  {
   return (
-    <div className="rounded-md py-6 px-8 font-roboto text-left mb-5 max-w-lg italic text-gray-600 bg-gray-100">
+    <div className="rounded-md py-6 px-8 font-roboto text-left mb-5 max-w-lg italic text-gray-600 bg-gray-100 z-10">
         <p className="text-base">"{ review }"</p>
         <div className="flex flex-col items-end gap-2 mt-3">
             <div className="inline-flex items-center [&_data-slot=icon]:w-5 [&_data-slot=icon]:h-5 [&_data-slot=icon]:text-inherit [&_data-slot=icon]:cursor-pointer text-amber-400">

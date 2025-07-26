@@ -5,7 +5,7 @@ export function VideoWithOverlay({
   src,
   poster,
   aspectRatio = "9/16",            // e.g. "9/16" for portrait, "16/9" for landscape
-  overlayClassName = "bg-blue-200", // Tailwind classes for overlay color & opacity
+  overlayClassName = "bg-green-600", // Tailwind classes for overlay color & opacity
   className = "",
 }) {
   const videoRef = useRef(null);
@@ -41,7 +41,7 @@ export function VideoWithOverlay({
         onClick={handleTogglePlay}
         onPause={() => setIsPlaying(false)}
         onEnded={() => setIsPlaying(false)}
-        className={`absolute inset-0 w-full h-full object-cover cursor-pointer filter ${
+        className={`absolute inset-0 w-full h-full object-cover filter ${
           isPlaying ? "grayscale-0" : "grayscale"
         }`}
       />
@@ -51,7 +51,7 @@ export function VideoWithOverlay({
         className={`
           absolute inset-0
           ${overlayClassName}
-          pointer-events-none
+          cursor-pointer
           transition-opacity duration-500 ease-in-out
           ${isPlaying ? "opacity-0" : "opacity-100"}
         `}
@@ -63,25 +63,37 @@ export function VideoWithOverlay({
         aria-label={isPlaying ? "Pause video" : "Play video"}
         className={`
           absolute inset-0 flex items-center justify-center
-          transition-opacity duration-500 ease-in-out
+          transition-opacity duration-500 ease-in-out cursor-pointer
           ${isPlaying ? "opacity-0" : "opacity-100"}
         `}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-16 w-16 text-white hover:scale-110 transition-transform duration-200"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          {isPlaying ? (
-            <>
-              <rect x="6" y="5" width="4" height="14" />
-              <rect x="14" y="5" width="4" height="14" />
-            </>
-          ) : (
-            <path d="M8 5v14l11-7z" />
-          )}
-        </svg>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  className="h-22 w-22 hover:scale-120 transition-transform duration-200"
+  viewBox="0 0 24 24"
+>
+  {/* Amber circle background */}
+  <circle 
+    cx="12" 
+    cy="12" 
+    r="12" 
+    fill="#fbbf24" 
+  />
+  
+  {/* Play/Pause buttons in green */}
+  {isPlaying ? (
+    <>
+      {/* Pause button - two rectangles */}
+      <rect x="9" y="7" width="2" height="10" fill="#15803d" />
+      <rect x="13" y="7" width="2" height="10" fill="#15803d" />
+    </>
+  ) : (
+    <>
+      {/* Play button - triangle */}
+      <polygon points="9,7 9,17 17,12" fill="#15803d" />
+    </>
+  )}
+</svg>
       </button>
     </div>
   );

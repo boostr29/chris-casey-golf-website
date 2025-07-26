@@ -1,21 +1,25 @@
 import React from "react";
-import { Helmet } from "react-helmet";
 import { RevealFrom } from "../components/RevealFrom";
 import { Stars } from '../components/Stars';
 
 export function ReviewsSection() {
     return (
 
-<section id="reviews" className="
-bg-gradient-to-b from-green-600 to-green-800
+<section id="reviews" className="relative
+bg-gradient-to-b from-gray-200 to-gray-300
 overflow-hidden md:pt-40 lg:pt-50 pt-30 custom-px">
-<Helmet>
-  <title>Golfer Reviews - Chris Casey Golf Instruction</title>
-  <meta
-    name="description"
-    content="Real reviews, from real success stories of golfers greatly improving their golf game."
+
+<div
+    className="
+      absolute inset-0
+      bg-[url('/images/dust-2.png')] 
+      bg-auto 
+      bg-center
+      opacity-40
+      pointer-events-none
+    "
   />
-</Helmet>
+
 <div className="flex justify-center">
     <RevealFrom
       triggerOnce={true}
@@ -28,8 +32,8 @@ overflow-hidden md:pt-40 lg:pt-50 pt-30 custom-px">
       <h2 className="font-header 
       text-[clamp(2.2rem,4.8vw,4rem)]
         leading-[1.2]
-      text-gray-100 font-semibold mb-4">Success Stories</h2>
-      <p className="text-lg text-gray-100">These reviews reflect the real progress our students are making.</p>
+      text-green-700 font-semibold mb-4">Success Stories</h2>
+      <p className="text-xl text-gray-700">These reviews reflect the real progress my students are making.</p>
       <div className="flex flex-wrap shrink justify-center mt-10">
         <a href="#contact" className="main-button">Schedule a Lesson</a>
       </div>
